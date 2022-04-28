@@ -1,0 +1,10 @@
+<div class="search">
+    <div class="search__wrapper">
+        <app-search-bar class="search__bar" placeholder="Which movie are you looking for?" (submitEvent)="searchMovie($event)">
+        </app-search-bar>
+        <mat-checkbox class="search__filter" [(ngModel)]="fullPlot">Full plot</mat-checkbox>
+    </div>
+    <div class="search__results">
+        <app-movie-card *ngFor="let movie of searchResult" [movie]="movie" [needFullPlot]="fullPlot"></app-movie-card>
+    </div>
+</div>

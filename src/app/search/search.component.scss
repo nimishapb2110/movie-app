@@ -1,0 +1,32 @@
+@import "../shared/styles/variables";
+
+.search {
+    margin: 10px;
+    width: calc(100% - 20px);
+    .search__wrapper {
+        display: flex;
+        align-items: center;
+        .search__bar {
+            flex: 1;
+        }
+        .search__filter {
+            margin-left: 10px;
+        }
+    }
+    .search__results {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
+
+/* Tablet & Desktop */
+@media (min-width: $screen-md-min) {
+    .search {
+        .search__results {
+            justify-content: flex-start;
+        }
+    }
+}
