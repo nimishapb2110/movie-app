@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { movieMock } from 'src/app/shared/mocks/movie.mock';
+import { StringToArrayPipe } from 'src/app/shared/pipes/string-to-array.pipe';
 
 import { MovieDetailComponent } from './movie-detail.component';
 
@@ -10,7 +11,7 @@ describe('MovieDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MovieDetailComponent],
+      declarations: [MovieDetailComponent, StringToArrayPipe],
       imports: [MatDialogModule],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
