@@ -1,5 +1,5 @@
 <div class="search-bar">
-    <input type="text" class="search-bar__input" [placeholder]="placeholder" #searchQuery>
+    <input type="text" class="search-bar__input" [placeholder]="placeholder" #searchQuery [minLength]="3">
     <button type="submit" class="search-bar__submit" (click)="onSubmitClick(searchQuery.value)">
         <fa-icon [icon]="faSearch"></fa-icon>
     </button>

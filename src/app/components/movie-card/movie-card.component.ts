@@ -15,19 +15,22 @@ export class MovieCardComponent {
   @Input() needFullPlot: boolean = false;
 
   movieDetail!: Movie;
+  errorExist: boolean = false;
 
   constructor(private movieService: MovieService, public dialog: MatDialog) { }
 
   getMovieDetailsForId(movieId: string | undefined) {
-    console.log('Selected movie: ', this.needFullPlot);
     if (!movieId) return;
-    this.movieService.getMovieDetailsForId(movieId, this.needFullPlot).subscribe(movie => {
+    this.movieService.getMovieDetailsForId(movieId, this.needFullPlot).subscribe({next: movie => {
       this.movieDetail = movie;
       const dialogRef = this.dialog.open(MovieDetailComponent, {
         width: '80%',
         data: this.movieDetail,
       });
-    });
+    },
+  error: error => {
+    this.errorExist = true;
+  }});
   }
 
 }

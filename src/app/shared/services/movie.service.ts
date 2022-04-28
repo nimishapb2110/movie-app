@@ -1,7 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map } from "rxjs";
+import { environment } from "src/environments/environment";
 import { Movie, Search } from "../models/movie.model";
+
+const API_URL = environment.API_URL;
+const API_KEY = environment.API_KEY;
 
 @Injectable({ providedIn: "root" })
 export class MovieService {
@@ -10,15 +14,13 @@ export class MovieService {
 
     getTopMoviesForSearch(searchTitle: string) {
         return this.http
-            .get<Search>(`http://www.omdbapi.com/?s=${searchTitle}&apiKey=6c3a2d45`)
+            .get<Search>(`${API_URL}?s=${searchTitle}&apiKey=${API_KEY}`)
             .pipe(map(response => response.Search))
-            //TODO - error case
     }
 
     getMovieDetailsForId(id: string, needFullPlot: boolean = false) {
         return this.http
-            .get<Movie>(`http://www.omdbapi.com/?i=${id}${needFullPlot ? `&plot=full` : ``}&apikey=6c3a2d45`)
-            //TODO - error case
+            .get<Movie>(`${API_URL}?i=${id}${needFullPlot ? `&plot=full` : ``}&apikey=${API_KEY}`)
     }
 
 }

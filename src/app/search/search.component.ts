@@ -13,15 +13,29 @@ export class SearchComponent implements OnInit {
 
 
   searchResult: Movie[] = [];
-  fullPlot: boolean=false;
+  fullPlot: boolean = false;
+  errorExist: boolean = false;
 
   constructor(private movieService: MovieService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    
+
   }
 
   searchMovie(searchQuery: string) {
-    this.movieService.getTopMoviesForSearch(searchQuery).subscribe(movies => { this.searchResult = movies })
+    this.movieService.getTopMoviesForSearch(searchQuery).subscribe({
+      next: (movies) => {
+        this.searchResult = movies;
+        if (!movies) {
+          this.errorExist = true;
+          return;
+        }
+        this.errorExist = false;
+      },
+      error: (error) => {
+        this.errorExist = true;
+      }
+    }
+    )
   }
 }

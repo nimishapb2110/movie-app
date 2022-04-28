@@ -19,6 +19,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   onSubmitClick(searchQuery: string) {
+    if (searchQuery.length < 3) return;
     this.submitEvent.emit(searchQuery);
   }
 

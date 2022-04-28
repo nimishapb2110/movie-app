@@ -7,4 +7,5 @@
     <mat-card-content>
         <p>Type: {{movie?.Type}}</p>
     </mat-card-content>
+    <p *ngIf="errorExist">Cannot find movie details!</p>
 </mat-card>
