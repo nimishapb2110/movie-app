@@ -11,13 +11,17 @@ import { MovieService } from '../shared/services/movie.service';
 export class FeaturedComponent implements OnInit {
 
   featuredMovies: Movie[] = [];
+  errorExist: boolean = false;
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
     FEATURED_MOVIES.forEach(movieId => {
-      this.movieService.getMovieDetailsForId(movieId).subscribe(movie => {
+      this.movieService.getMovieDetailsForId(movieId).subscribe({next: movie => {
         this.featuredMovies.push(movie);
-      });
+      },
+      error: error => {
+        this.errorExist =true;
+      }});
     });
   }
 

@@ -19,18 +19,30 @@ export class MovieCardComponent {
 
   constructor(private movieService: MovieService, public dialog: MatDialog) { }
 
-  getMovieDetailsForId(movieId: string | undefined) {
-    if (!movieId) return;
-    this.movieService.getMovieDetailsForId(movieId, this.needFullPlot).subscribe({next: movie => {
-      this.movieDetail = movie;
-      const dialogRef = this.dialog.open(MovieDetailComponent, {
-        width: '80%',
-        data: this.movieDetail,
+  getMovieDetailsForId() {
+    if (!this.movie?.imdbID) return;
+    if (this.movie?.Plot) {
+      this.movieDetail = this.movie;
+      this.openMovieDetail();
+    }
+    else {
+      this.movieService.getMovieDetailsForId(this.movie?.imdbID, this.needFullPlot).subscribe({
+        next: movie => {
+          this.movieDetail = movie;
+          this.openMovieDetail();
+        },
+        error: error => {
+          this.errorExist = true;
+        }
       });
-    },
-  error: error => {
-    this.errorExist = true;
-  }});
+    }
+  }
+
+  openMovieDetail() {
+    this.dialog.open(MovieDetailComponent, {
+      width: '80%',
+      data: this.movieDetail,
+    });
   }
 
 }
