@@ -18,7 +18,7 @@ describe('Movie search application', () => {
     cy.get('.search-bar__input').type('test');
     cy.get('button').click();
     cy.get('app-movie-card').first().click();
-    cy.get('mat-dialog-container').contains('Ok');
+    cy.get('mat-dialog-container').contains('Close');
   });
 
   it('Visits the featured page', () => {
@@ -30,6 +30,6 @@ describe('Movie search application', () => {
     cy.get('.header__menu li').last().click();
     cy.url().should('include', '/featured');
     cy.get('app-movie-card').first().click();
-    cy.get('mat-dialog-container').contains('Ok');
+    cy.get('mat-dialog-container').contains('Close');
   });
 });
