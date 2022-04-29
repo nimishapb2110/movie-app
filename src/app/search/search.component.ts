@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
 
 import { Movie } from '../shared/models/movie.model';
 import { MovieService } from '../shared/services/movie.service';
@@ -7,35 +7,38 @@ import { MovieService } from '../shared/services/movie.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
+  private readonly unsubscribe$: Subject<void> = new Subject();
 
-
-  searchResult: Movie[] = [];
+  searchResult: Movie[] | undefined;
   fullPlot: boolean = false;
   errorExist: boolean = false;
 
-  constructor(private movieService: MovieService, public dialog: MatDialog) { }
-
-  ngOnInit(): void {
-
-  }
+  constructor(private movieService: MovieService) {}
 
   searchMovie(searchQuery: string) {
-    this.movieService.getTopMoviesForSearch(searchQuery).subscribe({
-      next: (movies) => {
-        this.searchResult = movies;
-        if (!movies) {
+    this.movieService
+      .getTopMoviesForSearch(searchQuery)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe({
+        next: (movies) => {
+          this.searchResult = movies;
+          if (!movies) {
+            this.errorExist = true;
+            return;
+          }
+          this.errorExist = false;
+        },
+        error: () => {
           this.errorExist = true;
-          return;
-        }
-        this.errorExist = false;
-      },
-      error: (error) => {
-        this.errorExist = true;
-      }
-    }
-    )
+        },
+      });
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

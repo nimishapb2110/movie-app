@@ -1,28 +1,27 @@
 @import "../../shared/styles/variables";
 
 .header {
-    .header__menu {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        background-color: $dark-grey;
-        overflow: hidden;
-        li {
-            float: left;
-            a {
-                display: block;
-                padding: 16px;
-                color: $white;
-                text-decoration: none;
-                &:hover {
-                    background-color: $black;
-                }
-            }
+  &__menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: $dark-grey;
+    overflow: hidden;
+    display: flex;
+    li {
+      a {
+        display: block;
+        padding: 16px;
+        color: $white;
+        text-decoration: none;
+        &:hover {
+          background-color: $black;
         }
+      }
     }
-
-    .header__menu--active {
-        font-weight: bold;
-        background-color: $black;
+    &--active {
+      font-weight: bold;
+      background-color: $black;
     }
+  }
 }

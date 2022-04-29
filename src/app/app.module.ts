@@ -8,7 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { FormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { FeaturedComponent } from './featured/featured.component';
 import { SearchComponent } from './search/search.component';
@@ -23,7 +22,6 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
 import { HttpClientModule } from '@angular/common/http';
 import { StringToArrayPipe } from './shared/pipes/string-to-array.pipe';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +31,7 @@ import { StringToArrayPipe } from './shared/pipes/string-to-array.pipe';
     MovieCardComponent,
     SearchBarComponent,
     MovieDetailComponent,
-    StringToArrayPipe
+    StringToArrayPipe,
   ],
   imports: [
     BrowserModule,
@@ -45,9 +43,9 @@ import { StringToArrayPipe } from './shared/pipes/string-to-array.pipe';
     MatCheckboxModule,
     MatCardModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

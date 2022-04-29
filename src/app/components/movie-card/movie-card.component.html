@@ -1,11 +1,11 @@
-<mat-card class="backgroud accent movie-card" (click)="getMovieDetailsForId()">
-    <mat-card-header>
-        <mat-card-title>{{movie?.Title}}</mat-card-title>
-        <mat-card-subtitle>{{movie?.Year}}</mat-card-subtitle>
-    </mat-card-header>
-    <img src={{movie?.Poster}} alt="Poster" style="width:auto;">
-    <mat-card-content>
-        <p>Type: {{movie?.Type}}</p>
-    </mat-card-content>
-    <p *ngIf="errorExist">Cannot find movie details!</p>
+<mat-card fxFlexAlign="stretch" class="movie-card" (click)="getMovieDetailsForId()" tabindex="0">
+  <mat-card-header>
+    <mat-card-title>{{ movie?.Title }}</mat-card-title>
+    <mat-card-subtitle>{{ movie?.Year }}</mat-card-subtitle>
+  </mat-card-header>
+  <img *ngIf="movie?.Poster && movie?.Poster!=='N/A'" [src]="movie?.Poster" alt="{{movie?.Title}}_poster" />
+  <mat-card-content>
+    <p>Type: {{ movie?.Type }}</p>
+  </mat-card-content>
+  <p *ngIf="errorExist">Cannot find movie details!</p>
 </mat-card>

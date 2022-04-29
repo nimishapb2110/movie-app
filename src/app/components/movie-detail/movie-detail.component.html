@@ -1,34 +1,46 @@
 <div class="movie-detail">
-    <h1 mat-dialog-title class="movie-detail__header">{{data.Title}} ({{data.Released}})</h1>
-    <div class="movie-detail__wrapper" mat-dialog-content>
-        <div class="movie-detail__left">
-            <p>{{data.Type}} | {{data.Year}} | {{data.Rated}}</p>
-            <img class="movie-detail__img" src={{data.Poster}} alt="Poster">
-
-        </div>
-        <div class="movie-detail__right">
-            <p>Genre:</p>
-            <ul *ngFor="let item of data.Genre | stringToArray">
-                <li>{{item}}</li>
-            </ul>
-            <p>Director: {{data.Director}}</p>
-            <p>Writer:</p>
-            <ul *ngFor="let item of data.Writer | stringToArray">
-                <li>{{item}}</li>
-            </ul>
-            <p>Actors:</p>
-            <ul *ngFor="let item of data.Actors | stringToArray">
-                <li>{{item}}</li>
-            </ul>
-            <p>Plot:
-                {{!readMore ? longPlot : longPlot | slice:0:200 }} <span *ngIf="readMore">...</span>
-                <a href="javascript:void(0);" *ngIf="readMore" (click)="readMore=false">read more</a>
-            </p>
-            <p>Awards: {{data.Awards}}</p>
-        </div>
+  <h1 mat-dialog-title class="movie-detail__header">
+    {{ data.Title }} ({{ data.Released }})
+  </h1>
+  <div class="movie-detail__wrapper" mat-dialog-content>
+    <div class="movie-detail__left">
+      <p>{{ data.Type }} | {{ data.Year }} | {{ data.Rated }}</p>
+      <img
+        *ngIf="data?.Poster && data?.Poster !== 'N/A'"
+        class="movie-detail__img"
+        [src]="data.Poster"
+        alt="{{ data.Title }}_poster"
+      />
     </div>
-
-    <div mat-dialog-actions>
-        <button mat-button cdkFocusInitial (click)="onOkClick()">Ok</button>
+    <div class="movie-detail__right">
+      <p>Genre:</p>
+      <ul *ngFor="let item of data.Genre | stringToArray">
+        <li>{{ item }}</li>
+      </ul>
+      <p>Director: {{ data.Director }}</p>
+      <p>Writer:</p>
+      <ul *ngFor="let item of data.Writer | stringToArray">
+        <li>{{ item }}</li>
+      </ul>
+      <p>Actors:</p>
+      <ul *ngFor="let item of data.Actors | stringToArray">
+        <li>{{ item }}</li>
+      </ul>
+      <p>
+        Plot: {{ readMore ? (longPlot | slice: 0:200) : longPlot }}
+        <span *ngIf="readMore">...</span>
+        <a
+          href="javascript:void(0);"
+          *ngIf="readMore"
+          (click)="readMore = false"
+          >read more</a
+        >
+      </p>
+      <p>Awards: {{ data.Awards }}</p>
     </div>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button cdkFocusInitial (click)="onCloseClick()">Close</button>
+  </div>
 </div>

@@ -12,8 +12,7 @@ describe('MovieCardComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [MovieCardComponent],
       imports: [HttpClientTestingModule, MatDialogModule],
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

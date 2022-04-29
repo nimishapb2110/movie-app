@@ -1,32 +1,27 @@
 @import "../shared/styles/variables";
 
 .search {
-    margin: 10px;
-    width: calc(100% - 20px);
-    .search__wrapper {
-        display: flex;
-        align-items: center;
-        .search__bar {
-            flex: 1;
-        }
-        .search__filter {
-            margin-left: 10px;
-        }
+  margin: 10px;
+  width: calc(100% - 20px);
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    &-bar {
+      flex: 1;
     }
-    .search__results {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
-        justify-content: center;
+    &-filter {
+      margin-left: 10px;
     }
-}
-
-/* Tablet & Desktop */
-@media (min-width: $screen-md-min) {
-    .search {
-        .search__results {
-            justify-content: flex-start;
-        }
+  }
+  &__results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    justify-content: center;
+    @media (min-width: $screen-md-min) {
+      justify-content: flex-start;
     }
+  }
 }

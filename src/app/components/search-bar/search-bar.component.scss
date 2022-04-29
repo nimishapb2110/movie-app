@@ -1,29 +1,32 @@
 @import "../../shared/styles/variables";
 
 .search-bar {
-    display: flex;
-    align-items: center;
-    .search-bar__input {
-        width: 100%;
-        border: 3px solid $dark-grey;
-        border-right: none;
-        padding: 5px;
-        height: 20px;
-        border-radius: 5px 0 0 5px;
-        outline: none;
-    }
-    input:invalid {
-        border: 2px solid $red;
-    }
-    .search-bar__submit {
-        width: 40px;
-        height: 36px;
-        border: 1px solid $dark-grey;
-        background: $dark-grey;
-        text-align: center;
-        color: $white;
-        border-radius: 0 5px 5px 0;
-        cursor: pointer;
-        font-size: 20px;
-    }
+  display: flex;
+  align-items: center;
+  &__input {
+    width: 100%;
+    border: 3px solid $dark-grey;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+  input:invalid {
+    border: 2px solid $red;
+  }
+  &__submit {
+    width: 40px;
+    height: 36px;
+    border: 1px solid $dark-grey;
+    background: $dark-grey;
+    text-align: center;
+    color: $white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  &__invalid-message {
+    color: $red;
+  }
 }

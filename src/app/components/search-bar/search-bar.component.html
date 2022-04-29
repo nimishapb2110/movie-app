@@ -1,6 +1,19 @@
 <div class="search-bar">
-    <input type="text" class="search-bar__input" [placeholder]="placeholder" #searchQuery [minLength]="3">
-    <button type="submit" class="search-bar__submit" (click)="onSubmitClick(searchQuery.value)">
-        <fa-icon [icon]="faSearch"></fa-icon>
-    </button>
+  <input
+    type="text"
+    class="search-bar__input"
+    [placeholder]="placeholder"
+    #searchQuery
+    [minLength]="3"
+    (keyup.enter)="onSubmitClick(searchQuery.value)"
+  />
+  <button
+    type="submit"
+    class="search-bar__submit"
+    (click)="onSubmitClick(searchQuery.value)"
+  >
+    <fa-icon [icon]="faSearchIcon"></fa-icon>
+  </button>
 </div>
+<p class="search-bar__invalid-message" *ngIf="inputInvalid">Atleast 3 characters required.</p>
+

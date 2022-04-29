@@ -1,4 +1,7 @@
-<div class="featured" >
-    <app-movie-card *ngFor="let movie of featuredMovies" [movie]="movie"></app-movie-card>
-    <p *ngIf="errorExist">Movie not found!</p>
-</div> 
+<div class="featured">
+  <app-movie-card
+    *ngFor="let movie of featuredMovies"
+    [movie]="movie"
+  ></app-movie-card>
+  <p *ngIf="errorExist">Movie not found!</p>
+</div>

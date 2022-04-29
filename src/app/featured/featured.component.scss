@@ -1,16 +1,13 @@
 @import "../shared/styles/variables";
 
 .featured {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 10px;
-    justify-content: center;
-}
-
-/* Tablet & Desktop */
-@media (min-width: $screen-md-min) {
-    .featured {
-        justify-content: flex-start;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px;
+  padding-bottom: 10px;
+  justify-content: center;
+  @media (min-width: $screen-md-min) {
+    justify-content: flex-start;
+  }
 }
