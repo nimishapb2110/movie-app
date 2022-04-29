@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MovieService } from '../shared/services/movie.service';
+import { MovieService } from '../../shared/services/movie.service';
 
 import { FeaturedComponent } from './featured.component';
 

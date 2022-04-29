@@ -6,11 +6,11 @@ import {
   tick,
 } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MovieService } from '../shared/services/movie.service';
+import { MovieService } from '../../shared/services/movie.service';
 import * as Rx from 'rxjs';
 
 import { SearchComponent } from './search.component';
-import { movieMock } from '../shared/mocks/movie.mock';
+import { movieMock } from '../../shared/mocks/movie.mock';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;

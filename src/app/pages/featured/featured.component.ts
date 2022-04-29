@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { FEATURED_MOVIES } from '../shared/constants/movie-constants';
-import { Movie } from '../shared/models/movie.model';
-import { MovieService } from '../shared/services/movie.service';
+import { FEATURED_MOVIES } from '../../shared/constants/movie-constants';
+import { Movie } from '../../shared/models/movie.model';
+import { MovieService } from '../../shared/services/movie.service';
 
 @Component({
   selector: 'app-featured',

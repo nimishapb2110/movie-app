@@ -9,8 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FeaturedComponent } from './featured/featured.component';
-import { SearchComponent } from './search/search.component';
+import { FeaturedComponent } from './pages/featured/featured.component';
+import { SearchComponent } from './pages/search/search.component';
 import { HeaderComponent } from './components/header/header.component';
 
 import { AppRoutingModule } from './app-routing.module';

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 
-import { Movie } from '../shared/models/movie.model';
-import { MovieService } from '../shared/services/movie.service';
+import { Movie } from '../../shared/models/movie.model';
+import { MovieService } from '../../shared/services/movie.service';
 
 @Component({
   selector: 'app-search',
@@ -23,7 +23,7 @@ export class SearchComponent {
       .getTopMoviesForSearch(searchQuery)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
-        next: (movies) => {
+        next: (movies: Movie[]) => {
           this.searchResult = movies;
           if (!movies) {
             this.errorExist = true;
