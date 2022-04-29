@@ -6,6 +6,19 @@ The Movie App provides a search facility to find movies and the relevant details
 
 The app also has a featured page which displays two predefined movies, clicking on which the details will be displayed.
 
+The app can be accessed from the URL: https://movie-search-omdbapi.netlify.app/
+
+## Features covered
+
+- Search for movie by title (with a validation of minimum 3 characters)
+- Display of movies (with basic details) based on the search results from search API
+- An option to choose 'Full plot' during the search
+- Movie detail display on clicking the required movie
+- Featured page showing details of 2 predefined movies
+- 'Read more' option for plots having more than 200 characters
+- Display of Genre, Writers and Actors as list within detail view
+- Responsive design
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
