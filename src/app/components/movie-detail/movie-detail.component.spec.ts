@@ -46,14 +46,10 @@ describe('MovieDetailComponent', () => {
     it('should have readMore flag as true when the plot has characters exceeding 200', () => {
       expect(component.data?.Plot?.length).toBeLessThan(200);
       expect(component.readMore).toBeFalse;
-
       component.data.Plot =
         "Champion gamer Max Troy discovers events in a new video game are being mirrored in the real world, and must join forces with the game's protagonist, Orson Creed, to unravel the conspiracy before the game's sinister plot overwhelms";
-
       expect(component.data.Plot.length).toBeGreaterThan(200);
-
       component.ngOnInit();
-
       expect(component.readMore).toBeTrue;
     });
   });

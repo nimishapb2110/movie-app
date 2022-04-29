@@ -12,7 +12,7 @@ import { MovieService } from '../shared/services/movie.service';
 export class SearchComponent {
   private readonly unsubscribe$: Subject<void> = new Subject();
 
-  searchResult: Movie[] | undefined;
+  searchResult: Movie[] = [];
   fullPlot: boolean = false;
   errorExist: boolean = false;
 

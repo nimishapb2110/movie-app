@@ -11,7 +11,7 @@ const API_KEY = environment.API_KEY;
 export class MovieService {
   constructor(private http: HttpClient) {}
 
-  getTopMoviesForSearch(searchTitle: string): Observable<Movie[] | undefined> {
+  getTopMoviesForSearch(searchTitle: string): Observable<Movie[]> {
     return this.http
       .get<Search>(`${API_URL}?s=${searchTitle}&apiKey=${API_KEY}`)
       .pipe(map((response) => response.Search));

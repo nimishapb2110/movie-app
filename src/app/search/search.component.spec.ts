@@ -34,19 +34,15 @@ describe('SearchComponent', () => {
 
   it('should call getTopMoviesForSearch and get response as array', fakeAsync(() => {
     const movieService = fixture.debugElement.injector.get(MovieService);
-
     let movieServiceSpy = spyOn(
       movieService,
       'getTopMoviesForSearch'
     ).and.callFake(() => {
       return Rx.of([movieMock]).pipe(Rx.delay(1000));
     });
-
     expect(component.searchResult?.length).toBe(0);
-
     component.searchMovie('test');
     tick(1000);
-
     expect(component.searchResult?.length).toBeGreaterThan(0);
   }));
 });
